@@ -1,0 +1,2863 @@
+{
+	"info": {
+		"_postman_id": "bec722ad-cb8b-41d6-afe7-cb7ab2eeeb54",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31091450"
+	},
+	"item": [
+		{
+			"name": "Locations API",
+			"item": [
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "Admin Area List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(83);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].LocalizedName).to.eql(\"Adygeya\")\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/adminareas/ru",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"adminareas",
+										"ru"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Country List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(2);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].LocalizedName).to.eql(\"Greenland\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/countries/ARC",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"countries",
+										"ARC"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Region List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2500);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(10);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].LocalizedName).to.eql(\"Africa\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/regions",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"regions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Top Cities List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2086ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2086);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"Dhaka\");\r",
+											"});\r",
+											"pm.test('Count object = ' + pm.response.json().length, function () {\r",
+											"    pm.expect(pm.response.json().length).to.equal(50);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/topcities/50",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"topcities",
+										"50"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "AutoComplete",
+					"item": [
+						{
+							"name": "Autocomplete search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(10);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].LocalizedName).to.eql(\"Berlin\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/locations/v1/cities/autocomplete?q=berlin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"cities",
+										"autocomplete"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "berlin"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Location Key",
+					"item": [
+						{
+							"name": "City Neighbors by location Key",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(10);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].LocalizedName).to.eql(\"Mantes-la-Jolie\")\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/cities/neighbors/620",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"cities",
+										"neighbors",
+										"620"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search by location Key",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"LocalizedName is Porcheville\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.LocalizedName).to.eql(\"Porcheville\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an(\"object\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Key matches expected value\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.Key).to.eql(\"620\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Country is France\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.Country.LocalizedName).to.eql(\"France\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Region is Europe\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.Region.LocalizedName).to.eql(\"Europe\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"AdministrativeArea is Yvelines\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.AdministrativeArea.LocalizedName).to.eql(\"Yvelines\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"TimeZone is CET\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.TimeZone.Code).to.eql(\"CET\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Latitude and Longitude are correct\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.GeoPosition.Latitude).to.eql(48.972);\r",
+											"    pm.expect(jsonData.GeoPosition.Longitude).to.eql(1.778);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Elevation in meters is 25\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.GeoPosition.Elevation.Metric.Value).to.eql(25.0);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Has expected datasets\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var expectedDataSets = [\r",
+											"        \"AirQualityCurrentConditions\",\r",
+											"        \"AirQualityForecasts\",\r",
+											"        \"Alerts\",\r",
+											"        \"DailyPollenForecast\",\r",
+											"        \"ForecastConfidence\",\r",
+											"        \"FutureRadar\",\r",
+											"        \"MinuteCast\",\r",
+											"        \"Radar\"\r",
+											"    ];\r",
+											"    pm.expect(jsonData.DataSets).to.eql(expectedDataSets);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/locations/v1/620",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"620"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Text Search",
+					"item": [
+						{
+							"name": "City Search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса ответа\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что время отклика сервера меньше 2000 мс (2 секунды)\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в ответе есть хотя бы один элемент\r",
+											"pm.test(\"Response contains at least one city\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.be.above(0);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что среди городов есть \"Missouri\"\r",
+											"pm.test(\"City name is Missouri\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    let cityNames = jsonData.map(city => city.LocalizedName);\r",
+											"    pm.expect(cityNames).to.include(\"Missouri\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что страна - Канада\r",
+											"pm.test(\"Country is Canada\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    let countryNames = jsonData.map(city => city.Country.EnglishName);\r",
+											"    pm.expect(countryNames).to.include(\"Canada\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что регион - Северная Америка\r",
+											"pm.test(\"Region is North America\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    let regionNames = jsonData.map(city => city.Region.EnglishName);\r",
+											"    pm.expect(regionNames).to.include(\"North America\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/cities/search?q=Missouri",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"cities",
+										"search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "Missouri"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Text Search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 3127ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2500);\r",
+											"});\r",
+											"// Проверка, что в ответе есть хотя бы один элемент\r",
+											"pm.test(\"Response contains at least one city\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.be.above(0);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"City name is Missouri\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    let cityNames = jsonData.map(city => city.LocalizedName);\r",
+											"    pm.expect(cityNames).to.include(\"Missouri\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/search?offset=1&q=Missouri",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"search"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "1"
+										},
+										{
+											"key": "q",
+											"value": "Missouri"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Geoposition",
+					"item": [
+						{
+							"name": "Geoposition Search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса ответа\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Проверка названия города\r",
+											"pm.test(\"City name is Saint Petersburg\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.AdministrativeArea.LocalizedName).to.eql(\"Saint Petersburg\");\r",
+											"    pm.expect(jsonData.AdministrativeArea.EnglishName).to.eql(\"Saint Petersburg\");\r",
+											"});\r",
+											"\r",
+											"// Проверка координат\r",
+											"pm.test(\"Coordinates match expected values\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.GeoPosition.Latitude).to.be.closeTo(59.932, 0.1);\r",
+											"    pm.expect(jsonData.GeoPosition.Longitude).to.be.closeTo(30.327, 0.1);\r",
+											"});\r",
+											"\r",
+											"// Проверка региона\r",
+											"pm.test(\"Region is Asia\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.Region.EnglishName).to.eql(\"Asia\");\r",
+											"});\r",
+											"\r",
+											"// Проверка страны\r",
+											"pm.test(\"Country is Russia\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.Country.EnglishName).to.eql(\"Russia\");\r",
+											"});\r",
+											"\r",
+											"// Проверка часового пояса\r",
+											"pm.test(\"Time zone is Europe/Moscow\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.TimeZone.Name).to.eql(\"Europe/Moscow\");\r",
+											"});\r",
+											"\r",
+											"// Проверка родительского города\r",
+											"pm.test(\"Parent city is Saint Petersburg\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.ParentCity.EnglishName).to.eql(\"Saint Petersburg\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?q=59.9343,30.3351",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"cities",
+										"geoposition",
+										"search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "59.9343,30.3351"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "IP Address",
+					"item": [
+						{
+							"name": "IP Address Search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка, что статус код 200\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ приходит быстрее 1492 мс\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в теле ответа есть ключ \"LocalizedName\"\r",
+											"pm.test(\"Response has LocalizedName\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.have.property(\"LocalizedName\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что полученный город не пустой\r",
+											"pm.test(\"City name is not empty\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.LocalizedName).to.be.a('string').and.to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/locations/v1/cities/ipaddress",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"locations",
+										"v1",
+										"cities",
+										"ipaddress"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Forecast API",
+			"item": [
+				{
+					"name": "Daily",
+					"item": [
+						{
+							"name": "1 Day of Daily Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test('Count object = ' + pm.response.json().length, function () {\r",
+											"    pm.expect(pm.response.json().DailyForecasts.length).to.equal(1);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json().Headline.Category).to.equal(\"snow\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/daily/1day/290396",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"daily",
+										"1day",
+										"290396"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "10 Days of Daily Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "in",
+											"value": "query",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "apikey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "ijar3DYGLTWjxxF7Jni6v6KgpL8E3Qq1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/daily/10day/290396",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"daily",
+										"10day",
+										"290396"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "15 Days of Daily Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/daily/15day/290396",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"daily",
+										"15day",
+										"290396"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 Days of Daily Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Count of DailyForecasts is 5\", function () {\r",
+											"    pm.expect(pm.response.json().DailyForecasts.length).to.equal(5);\r",
+											"});\r",
+											"pm.test(\"Headline text is correct\", function () {\r",
+											"    pm.expect(pm.response.json().Headline.Text).to.equal(\"A high temperature of 36 Wednesday\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/daily/5day/294021",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"daily",
+										"5day",
+										"294021"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Hourly",
+					"item": [
+						{
+							"name": "1 Hour of Hourly Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an array\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an(\"array\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Array contains at least one object\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.be.above(0);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"DateTime format is correct\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var dateTime = jsonData[0].DateTime;\r",
+											"    pm.expect(new Date(dateTime).toString()).not.to.equal(\"Invalid Date\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/294021",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"hourly",
+										"1hour",
+										"294021"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "12 Hours of Hourly Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response is an array\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an(\"array\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/294021",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"hourly",
+										"12hour",
+										"294021"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "120 Hours of Hourly Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/hourly/120hour/294021",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"hourly",
+										"120hour",
+										"294021"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "24 Hours of Hourly Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/hourly/24hour/294021",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"hourly",
+										"24hour",
+										"294021"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "72 Hours of Hourly Forecasts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/forecasts/v1/hourly/72hour/294021",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"forecasts",
+										"v1",
+										"hourly",
+										"72hour",
+										"294021"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Current Conditions API",
+			"item": [
+				{
+					"name": "Current Conditions",
+					"item": [
+						{
+							"name": "Current Conditions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(1);\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/currentconditions/v1/294021",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"currentconditions",
+										"v1",
+										"294021"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Top Cities",
+					"item": [
+						{
+							"name": "Current Conditions for Top Cities",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 1000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/currentconditions/v1/topcities/50",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"currentconditions",
+										"v1",
+										"topcities",
+										"50"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Historical Current Conditions",
+					"item": [
+						{
+							"name": "Historical Current Conditions (past 24 hours)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(24);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].MobileLink).to.eql(\"http://www.accuweather.com/en/gr/logos/2285860/current-weather/2285860?lang=en-us\")\r",
+											"}); \r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/currentconditions/v1/5/historical/24",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"currentconditions",
+										"v1",
+										"5",
+										"historical",
+										"24"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Historical Current Conditions (past 6 hours)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(6);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Link).to.eql(\"http://www.accuweather.com/en/gr/logos/2285860/current-weather/2285860?lang=en-us\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/currentconditions/v1/5/historical",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"currentconditions",
+										"v1",
+										"5",
+										"historical"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Indices API",
+			"item": [
+				{
+					"name": "1 Day",
+					"item": [
+						{
+							"name": "1 Day of Daily Index Values for a Group of Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса 200\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что время ответа < 2000ms\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ не пустой\r",
+											"pm.test(\"Response is not empty\", function () {\r",
+											"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ — массив\r",
+											"pm.test(\"Response is an array\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('array');\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в ответе 49 элементов\r",
+											"pm.test(\"Response contains 49 indices\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(49);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что каждый индекс содержит поле \"Name\"\r",
+											"pm.test(\"Each index contains Name field\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    jsonData.forEach(item => {\r",
+											"        pm.expect(item).to.have.property(\"Name\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"// Проверка, что первый индекс имеет имя \"Flight Delays\"\r",
+											"pm.test(\"First index is 'Flight Delays'\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData[0].Name).to.eql(\"Flight Delays\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/1day/295212/groups/1",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"1day",
+										"295212",
+										"groups",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1 Day of Daily Index Values for a Specific",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(1);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Name).to.eql(\"Outdoor Concert Forecast\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/1day/5/8",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"1day",
+										"5",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1 Day of Daily Index Values for All Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(49);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Name).to.eql(\"Flight Delays\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/1day/5",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"1day",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "10 Day",
+					"item": [
+						{
+							"name": "10 Days of Daily Index Values for a Group of Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса 401\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ не пустой\r",
+											"pm.test(\"Response is not empty\", function () {\r",
+											"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Десериализация JSON\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"// Проверка, что поле \"Code\" равно \"Unauthorized\"\r",
+											"pm.test(\"Code is Unauthorized\", function () {\r",
+											"    pm.expect(jsonData.Code).to.eql(\"Unauthorized\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Message\" равно \"Api Authorization failed\"\r",
+											"pm.test(\"Message is 'Api Authorization failed'\", function () {\r",
+											"    pm.expect(jsonData.Message).to.eql(\"Api Authorization failed\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Reference\" содержит нужный URL\r",
+											"pm.test(\"Reference contains expected path\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"/indices/v1/daily/10day/295212/groups/1\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в Reference есть API key\r",
+											"pm.test(\"Reference contains API key\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"apikey=\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/10day/295212/groups/1",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"10day",
+										"295212",
+										"groups",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "10 Days of Daily Index Values for a Specific Index",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса 401\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ не пустой\r",
+											"pm.test(\"Response is not empty\", function () {\r",
+											"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Десериализация JSON\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"// Проверка, что поле \"Code\" равно \"Unauthorized\"\r",
+											"pm.test(\"Code is Unauthorized\", function () {\r",
+											"    pm.expect(jsonData.Code).to.eql(\"Unauthorized\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Message\" равно \"Api Authorization failed\"\r",
+											"pm.test(\"Message is 'Api Authorization failed'\", function () {\r",
+											"    pm.expect(jsonData.Message).to.eql(\"Api Authorization failed\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Reference\" содержит нужный URL\r",
+											"pm.test(\"Reference contains expected path\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"/indices/v1/daily/10day/295212/1\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в Reference есть API key\r",
+											"pm.test(\"Reference contains API key\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"apikey=\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/10day/295212/1",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"10day",
+										"295212",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "10 Days of Daily Index Values for All Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса 401\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ не пустой\r",
+											"pm.test(\"Response is not empty\", function () {\r",
+											"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Десериализация JSON\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"// Проверка, что поле \"Code\" равно \"Unauthorized\"\r",
+											"pm.test(\"Code is Unauthorized\", function () {\r",
+											"    pm.expect(jsonData.Code).to.eql(\"Unauthorized\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Message\" равно \"Api Authorization failed\"\r",
+											"pm.test(\"Message is 'Api Authorization failed'\", function () {\r",
+											"    pm.expect(jsonData.Message).to.eql(\"Api Authorization failed\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Reference\" содержит нужный URL\r",
+											"pm.test(\"Reference contains expected path\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"/indices/v1/daily/10day/295212\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в Reference есть API key\r",
+											"pm.test(\"Reference contains API key\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"apikey=\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/10day/295212",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"10day",
+										"295212"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "15 Day",
+					"item": [
+						{
+							"name": "15 Days of Daily Index Values for a Group of Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса 401\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ не пустой\r",
+											"pm.test(\"Response is not empty\", function () {\r",
+											"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Десериализация JSON\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"// Проверка, что поле \"Code\" равно \"Unauthorized\"\r",
+											"pm.test(\"Code is Unauthorized\", function () {\r",
+											"    pm.expect(jsonData.Code).to.eql(\"Unauthorized\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Message\" равно \"Api Authorization failed\"\r",
+											"pm.test(\"Message is 'Api Authorization failed'\", function () {\r",
+											"    pm.expect(jsonData.Message).to.eql(\"Api Authorization failed\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Reference\" содержит нужный URL\r",
+											"pm.test(\"Reference contains expected path\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"/indices/v1/daily/15day/295212/groups/1\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в Reference есть API key\r",
+											"pm.test(\"Reference contains API key\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"apikey=\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/15day/295212/groups/1",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"15day",
+										"295212",
+										"groups",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "15 Days of Daily Index Values for a Specific Index",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса 401\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ не пустой\r",
+											"pm.test(\"Response is not empty\", function () {\r",
+											"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Десериализация JSON\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"// Проверка, что поле \"Code\" равно \"Unauthorized\"\r",
+											"pm.test(\"Code is Unauthorized\", function () {\r",
+											"    pm.expect(jsonData.Code).to.eql(\"Unauthorized\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Message\" равно \"Api Authorization failed\"\r",
+											"pm.test(\"Message is 'Api Authorization failed'\", function () {\r",
+											"    pm.expect(jsonData.Message).to.eql(\"Api Authorization failed\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Reference\" содержит нужный URL\r",
+											"pm.test(\"Reference contains expected path\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"/indices/v1/daily/15day/295212/1\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в Reference есть API key\r",
+											"pm.test(\"Reference contains API key\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"apikey=\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/15day/295212/1",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"15day",
+										"295212",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "15 Days of Daily Index Values for All Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Проверка статуса 401\r",
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"\r",
+											"// Проверка, что ответ не пустой\r",
+											"pm.test(\"Response is not empty\", function () {\r",
+											"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+											"});\r",
+											"\r",
+											"// Десериализация JSON\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"// Проверка, что поле \"Code\" равно \"Unauthorized\"\r",
+											"pm.test(\"Code is Unauthorized\", function () {\r",
+											"    pm.expect(jsonData.Code).to.eql(\"Unauthorized\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Message\" равно \"Api Authorization failed\"\r",
+											"pm.test(\"Message is 'Api Authorization failed'\", function () {\r",
+											"    pm.expect(jsonData.Message).to.eql(\"Api Authorization failed\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что поле \"Reference\" содержит нужный URL\r",
+											"pm.test(\"Reference contains expected path\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"/indices/v1/daily/15day/295212\");\r",
+											"});\r",
+											"\r",
+											"// Проверка, что в Reference есть API key\r",
+											"pm.test(\"Reference contains API key\", function () {\r",
+											"    pm.expect(jsonData.Reference).to.include(\"apikey=\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/15day/295212",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"15day",
+										"295212"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "5 Day",
+					"item": [
+						{
+							"name": "5 Days of Daily Index Values for a Group of Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(15);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Name).to.eql(\"Fishing Forecast\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/5day/52/groups/8",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"5day",
+										"52",
+										"groups",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 Days of Daily Index Values for a Specific Index",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(5);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Name).to.eql(\"Outdoor Concert Forecast\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/5day/52/8",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"5day",
+										"52",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5 Days of Daily Index Values for All Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(245);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Name).to.eql(\"Flight Delays\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/5day/52",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"5day",
+										"52"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Metadata",
+					"item": [
+						{
+							"name": "List of Daily Indices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(118);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Name).to.eql(\"Air Conditioning Index\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List of Index Groups",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(47);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Name).to.eql(\"All API\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/groups",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"groups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List of Indices in a Specific Group",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Response length\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.length).to.eql(3);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.json()[0].Name).to.eql(\"Fishing Forecast\")\r",
+											"}); "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/groups/8",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"groups",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Metadata for a Specific Index",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											"pm.test(\"Name is correct\", function () {\r",
+											"    pm.expect(pm.response.json().Name).to.eql(\"Outdoor Concert Forecast\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/indices/v1/daily/8",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"indices",
+										"v1",
+										"daily",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Weather Alarms API",
+			"item": [
+				{
+					"name": "1 Day of Weather Alarms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверка статуса 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// Проверка время ответа\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"// Проверка, что ответ не пустой\r",
+									"pm.test(\"Response is not empty\", function () {\r",
+									"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/alarms/v1/1day/10",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"alarms",
+								"v1",
+								"1day",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10 Days of Weather Alarms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверка статуса 401\r",
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"// Проверка время ответа\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"// Проверка, что ответ не пустой\r",
+									"pm.test(\"Response is not empty\", function () {\r",
+									"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/alarms/v1/10day/290421",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"alarms",
+								"v1",
+								"10day",
+								"290421"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "15 Days of Weather Alarms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//было http://dataservice.accuweather.com/alarms/v1/15day/{locationKey}\r",
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Api Authorization failed\")\r",
+									"}); "
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/alarms/v1/15day/290421",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"alarms",
+								"v1",
+								"15day",
+								"290421"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 Days of Weather Alarms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/alarms/v1/5day/290421",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"alarms",
+								"v1",
+								"5day",
+								"290421"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alerts API",
+			"item": [
+				{
+					"name": "Alerts by LocationKey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/alerts/v1/290421",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"alerts",
+								"v1",
+								"290421"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagery API",
+			"item": [
+				{
+					"name": "Radar and Satellite Imagery",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/imagery/v1/maps/radsat/480x480/290421",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"imagery",
+								"v1",
+								"maps",
+								"radsat",
+								"480x480",
+								"290421"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tropical API",
+			"item": [
+				{
+					"name": "Search",
+					"item": [
+						{
+							"name": "Government Issued Storms by year",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 2000ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://dataservice.accuweather.com/tropical/v1/gov/storms/2024",
+									"protocol": "http",
+									"host": [
+										"dataservice",
+										"accuweather",
+										"com"
+									],
+									"path": [
+										"tropical",
+										"v1",
+										"gov",
+										"storms",
+										"2024"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Position",
+					"item": []
+				},
+				{
+					"name": "Forecast",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "Translations API",
+			"item": [
+				{
+					"name": "List all Languages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/translations/v1/languages",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"translations",
+								"v1",
+								"languages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of Available Translation Groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/translations/v1/groups",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"translations",
+								"v1",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of Translations for a Specific Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 2000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/translations/v1/groups/10",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"translations",
+								"v1",
+								"groups",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MinuteCast API",
+			"item": [
+				{
+					"name": "MinuteCast® Forecasts By Latitude, Longitude",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://dataservice.accuweather.com/forecasts/v1/minute",
+							"protocol": "http",
+							"host": [
+								"dataservice",
+								"accuweather",
+								"com"
+							],
+							"path": [
+								"forecasts",
+								"v1",
+								"minute"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "apikey",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "ijar3DYGLTWjxxF7Jni6v6KgpL8E3Qq1",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api-key-my",
+			"value": "ijar3DYGLTWjxxF7Jni6v6KgpL8E3Qq1",
+			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://dataservice.accuweather.com",
+			"type": "string"
+		},
+		{
+			"key": "regionCode",
+			"value": "ARC",
+			"type": "string"
+		}
+	]
+}
